@@ -6,6 +6,7 @@
 #
 import socket
 import json
+from test2 import create_output_json
 
 def add(a = 1, b = 2):
     c = a + b
@@ -43,11 +44,26 @@ def client():
                 print(path)
             if len(json_data['image_path']) > 0:
                 print(len(json_data['image_path']))
-                result = add()
-                print('result:', result)
+                # result = add()
+                # print('result:', result)
                 for path in json_data['image_path']:
-                    test1(path)
+                    result = create_output_json(path)
+                    """
+                        result = {
+                                "identify_state": 200,
+                                "image_path": [image_path],
+                                "HolesNum": 1,
+                                "recognition_result":[
+                                    {
+                                        "diameter": circle_result[2],
+                                        "center_x": circle_result[0],
+                                        "center_y": circle_result[1]
+                                    }
+                                ]
+                            }
+                    """
                 if result is not None:
+                    # 将json_data发送到服务器
                     client_socket.send(str(result).encode('utf-8'))
                 else:
                     raise Exception('result is None')
