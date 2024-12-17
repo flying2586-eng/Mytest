@@ -1,12 +1,14 @@
 import diplib as dip
 import math
+import matplotlib.pyplot as plt
+plt.rcParams['figure.dpi'] = 72
 """
 @Auther: Wenjian Lv
 """
 
 # Load image and set pixel size
 img = dip.ImageRead('N6uqw.jpg')
-# img.Show()
+img.Show()
 img.SetPixelSize(0.042, "mm")
 
 # Extract object

@@ -23,12 +23,12 @@ import math
 # Prepare image
 a = dip.Image((512, 512))
 a.Fill(0)
-dip.DrawEllipsoid(a, (200, 200), (256, 256))
+dip.DrawEllipsoid(a, (200, 200), (256, 256))    # 绘制椭圆 此次绘制的是一个圆 也就是长轴和短轴相等 圆心在(256,256) 直径为200
 dip.DrawEllipsoid(a, (50, 50), (350, 350))
 
 gv = dip.Gradient(a)
-gm = dip.Norm(gv)
-bin = dip.IsodataThreshold(gm)
+gm = dip.Norm(gv)       # 范数 也就是梯度的大小
+bin = dip.IsodataThreshold(gm)  #采用kmeans聚类算法通过直方图对图像进行二值化 聚类种类为nThresholds +1 默认设置nThresholds =1
 
 # Find circles using low-level functions
 h = dip.HoughTransformCircleCenters(bin, gv)
