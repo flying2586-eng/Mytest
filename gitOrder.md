@@ -75,6 +75,7 @@
 
 `git push`  推送你的新分支与数据到某个远程仓库命令
     `git push [alias] [branch]`
+    `git push -u origin main`
 
 `git remote rm` 删除远程仓库
     `git remote rm [alias]`
