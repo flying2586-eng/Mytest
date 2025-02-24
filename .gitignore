@@ -1,3 +1,6 @@
 __pycache__
+.idea
 build
 dist
+dist2
+test
